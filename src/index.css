@@ -1,5 +1,4 @@
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -10,4 +9,38 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+:root {
+  /* main font */
+  --main-font: 'Orbitron', sans-serif;
+
+  /* calculator related property */
+  --calculator-background-color: #696969;
+  --calculator-height: 72%;
+  --calculator-width: 36%;
+  
+  /* display related property */
+  --display-background-color: #1d1f1f;
+  --display-text-color: #23e000;
+  --display-text-size: 4em;
+  --display-text-weight: 400;
+  --display-height: 24%;
+  --display-width: 92%;
+}
+
+@media screen and (max-width: 1024px) {
+  :root {
+    /* calculator related property */
+    --calculator-height: 100%;
+    --calculator-width: 100%;
+
+    /* display realted property */
+    --display-text-size: 10em;
+  }
+}
+
+body, div, p {
+  margin: 0;
+  padding: 0;
 }
