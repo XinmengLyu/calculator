@@ -8,8 +8,8 @@ class Calculator extends React.Component {
         super(props);
         this.state = {
             displayValue: "0",
-            numbers: [],
-            operators: [],
+            numbers: ['9', '8', '7', '6', '5', '4', '3', '2', '1', '.', '0', 'ce'],
+            operators: ['/', 'x', '-', '+'],
             selectedOperator: "",
             sortedValue: "",
         };
@@ -23,8 +23,19 @@ class Calculator extends React.Component {
         console.log("set operator");
     };
 
-    updateDisplay = () => {
+    updateDisplay = value => {
         console.log("update display");
+        let { displayValue } = this.state;
+        if (value === "." && displayValue.includes(".")) value = "";
+
+        if (value === "ce") {
+            displayValue = displayValue.substring(0, displayValue.length - 1);
+            if (displayValue.length === 0) displayValue = "0";
+        } else {
+            displayValue === "0" ? displayValue = value : displayValue += value;
+        }
+
+        this.setState({ displayValue: displayValue });
     };
 
     render() {
@@ -32,7 +43,7 @@ class Calculator extends React.Component {
         return (
             <div className="calculator-container">
                 <Display displayValue={displayValue} />
-                <Keypad 
+                <Keypad
                     callOperator={this.callOperator}
                     numbers={numbers}
                     operators={operators}
